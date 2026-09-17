@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CV — Gowrish Kumar Reddy</title>
+<meta name="description" content="Curriculum vitae — Gowrish Kumar Reddy.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Work+Sans:wght@400;500;600&family=Caveat:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<div class="page">
+  <div class="container">
+    <header class="site-nav">
+      <a href="/" class="wordmark">Gowrish</a>
+      <nav class="nav-links">
+        <a href="/">home</a>
+        <a href="/research/">research</a>
+        <a href="/about/">about</a>
+        <a href="/cv/" class="active">cv</a>
+        <a href="/notes/">notes</a>
+        <a href="/contact/">contact</a>
+      </nav>
+    </header>
+  </div>
+
+  <div class="container" style="padding-top:52px">
+    <div style="display:flex; justify-content:space-between; align-items:flex-end; gap:20px; flex-wrap:wrap; margin-bottom:10px">
+      <h1 class="h1-inner" style="margin:0">Curriculum vitae</h1>
+      <a href="/cv.pdf" download class="btn-dashed" style="text-decoration:none">Download PDF</a>
+    </div>
+    <p style="font-family:'Newsreader',serif; font-size:18px; line-height:1.6; color:var(--ink-75); max-width:52ch; margin:0">Gowrish Kumar Reddy · <a href="mailto:gowrishkumar61@gmail.com" class="link-underline" style="text-underline-offset:2px">Email</a> · <a href="https://github.com/gowrish-kumar-61" class="link-underline" style="text-underline-offset:2px" target="_blank" rel="noopener noreferrer">GitHub</a></p>
+  </div>
+
+  <div class="container" style="padding-top:46px">
+    <div class="divider" style="padding-top:24px">
+      <div class="eyebrow" style="letter-spacing:.14em; margin-bottom:18px">Education</div>
+      <div style="display:flex; justify-content:space-between; align-items:baseline; gap:20px; flex-wrap:wrap">
+        <div>
+          <div style="font-family:'Newsreader',serif; font-size:20px; margin-bottom:4px">B.Tech, Computer Science &amp; Engineering (AI/ML)</div>
+          <div style="font-size:14.5px; color:var(--ink-70)">SRM Institute of Science &amp; Technology, Ramapuram</div>
+        </div>
+        <div style="font-size:13px; color:var(--ink-72); white-space:nowrap">2024 — 2028</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container" style="padding-top:38px">
+    <div class="divider" style="padding-top:24px">
+      <div class="eyebrow" style="letter-spacing:.14em; margin-bottom:20px">Research &amp; projects</div>
+
+      <div style="margin-bottom:26px">
+        <div style="display:flex; justify-content:space-between; align-items:baseline; gap:20px; flex-wrap:wrap; margin-bottom:8px">
+          <div style="font-family:'Newsreader',serif; font-size:19px">Mechanistic interpretability pipeline for GPT-2 Small</div>
+          <div style="font-size:13px; color:var(--ink-72); white-space:nowrap">2026</div>
+        </div>
+        <ul style="margin:0; padding-left:18px; font-size:14.5px; line-height:1.7; color:var(--ink-75); max-width:62ch">
+          <li>Built an end-to-end interpretability pipeline in raw PyTorch, without interpretability libraries.</li>
+          <li>Identified a Previous Token Head at L3H0 with a score of 0.87 — 19× the baseline.</li>
+          <li>Identified an Induction Head at L5H1 and confirmed it via activation patching.</li>
+          <li>Predicted both heads analytically using SVD on head weight matrices, then verified experimentally.</li>
+          <li>Documented in a full findings report with 14 figures — <a href="https://github.com/gowrish-kumar-61/mechanistic-interp-gpt2" class="link-underline" style="text-underline-offset:2px" target="_blank" rel="noopener noreferrer">GitHub ↗</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <div style="display:flex; justify-content:space-between; align-items:baseline; gap:20px; flex-wrap:wrap; margin-bottom:8px">
+          <div style="font-family:'Newsreader',serif; font-size:19px">Empirical benchmarking of sub-3B VLMs on CPU-only hardware</div>
+          <div style="font-size:13px; color:var(--ink-72); white-space:nowrap">2026 · ongoing</div>
+        </div>
+        <ul style="margin:0; padding-left:18px; font-size:14.5px; line-height:1.7; color:var(--ink-75); max-width:62ch">
+          <li>Benchmarking SmolVLM, Moondream2, and TinyLLaVA on VQAv2 for accuracy, latency, and memory footprint — CPU only.</li>
+          <li>Motivated by the gap between GPU-assumed benchmarks and real edge or budget deployment.</li>
+          <li>Surfaced unreported bottlenecks, including Moondream2 at 700+ seconds per image on Intel CPUs.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="container" style="padding-top:38px">
+    <div class="divider" style="padding-top:24px">
+      <div class="eyebrow" style="letter-spacing:.14em; margin-bottom:16px">Technical skills</div>
+      <div class="skills-grid">
+        <div><span class="label">Languages</span><br>Python</div>
+        <div><span class="label">ML &amp; interpretability</span><br>PyTorch, Hugging Face, TransformerLens</div>
+        <div><span class="label">Scientific computing</span><br>NumPy, Pandas, Matplotlib</div>
+        <div><span class="label">Tooling</span><br>Git, LaTeX</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container" style="padding-top:38px">
+    <div class="divider" style="padding-top:24px">
+      <div class="eyebrow" style="letter-spacing:.14em; margin-bottom:16px">Current focus</div>
+      <p style="font-size:14.5px; line-height:1.72; color:var(--ink-75); max-width:62ch; margin:0; text-wrap:pretty">Rebuilding mathematical foundations (linear algebra, Boyd's <i>VMLS</i>), then working through ARENA 3.0, followed by a full replication of a published interpretability paper. Building toward a MATS 2027 application. <a href="/research/" class="link-underline" style="text-underline-offset:2px">More on the research page →</a></p>
+    </div>
+  </div>
+
+  <footer class="container site-footer">
+    <div class="footer-title">say hi — I'd like that.</div>
+    <div class="footer-links">
+      <a href="mailto:gowrishkumar61@gmail.com">Email</a>
+      <a href="https://github.com/gowrish-kumar-61" target="_blank" rel="noopener noreferrer">GitHub</a>
+      <a href="https://twitter.com/gowrishkumar23" target="_blank" rel="noopener noreferrer">Twitter</a>
+      <a href="https://linkedin.com/in/gowrish-kumar-reddy-ab1a0132b" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+    </div>
+  </footer>
+</div>
+</body>
+</html>

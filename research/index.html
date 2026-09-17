@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Research — Gowrish Kumar Reddy</title>
+<meta name="description" content="Mechanistic interpretability on GPT-2 Small, and CPU-only VLM benchmarking.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Work+Sans:wght@400;500;600&family=Caveat:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<div class="page">
+  <div class="container">
+    <header class="site-nav">
+      <a href="/" class="wordmark">Gowrish</a>
+      <nav class="nav-links">
+        <a href="/">home</a>
+        <a href="/research/" class="active">research</a>
+        <a href="/about/">about</a>
+        <a href="/cv/">cv</a>
+        <a href="/notes/">notes</a>
+        <a href="/contact/">contact</a>
+      </nav>
+    </header>
+  </div>
+
+  <div class="container" style="padding-top:52px">
+    <h1 class="h1-inner">Research</h1>
+    <p style="font-family:'Newsreader',serif; font-size:19px; line-height:1.6; color:var(--ink-80); max-width:54ch; margin:0; text-wrap:pretty">Two things I'm working on. One is about understanding what a model has learned; the other is about what happens when you try to actually run one.</p>
+  </div>
+
+  <div class="container" style="padding-top:46px">
+    <div class="divider" style="padding-top:26px">
+      <div style="display:flex; justify-content:space-between; align-items:baseline; gap:16px; flex-wrap:wrap; margin-bottom:10px">
+        <div class="eyebrow">01 · Mechanistic interpretability</div>
+        <div style="font-size:12.5px; color:var(--ink-72)">2026</div>
+      </div>
+      <h2 style="font-family:'Newsreader',serif; font-weight:500; font-size:27px; line-height:1.25; margin:0 0 16px">A mechanistic interpretability pipeline for GPT-2 Small, built from scratch</h2>
+      <p style="font-family:'Newsreader',serif; font-size:17px; line-height:1.65; color:var(--ink-80); max-width:60ch; margin:0 0 16px; text-wrap:pretty">I wrote the whole pipeline in raw PyTorch without touching an interpretability library. The point wasn't convenience — it was that I didn't want any step of the analysis to be a black box to me while I was studying a black box.</p>
+      <p style="font-size:15px; line-height:1.72; color:var(--ink-75); max-width:62ch; margin:0 0 18px; text-wrap:pretty">The method was analytical first: I used SVD on the attention head weight matrices to predict which heads should be implementing which behaviour, then went looking for experimental confirmation rather than the other way around. Two heads came out of it clearly — a <b>Previous Token Head at L3H0</b>, scoring 0.87 against a 19× lower baseline, and an <b>Induction Head at L5H1</b>, which I confirmed with activation patching. Both predictions held up.</p>
+      <div class="chip-row" style="margin-bottom:18px">
+        <span class="chip">raw PyTorch</span>
+        <span class="chip">SVD weight analysis</span>
+        <span class="chip">activation patching</span>
+        <span class="chip">14 figures</span>
+      </div>
+      <a href="https://github.com/gowrish-kumar-61/mechanistic-interp-gpt2" class="btn-dashed" target="_blank" rel="noopener noreferrer">read the findings doc &amp; figures on GitHub ↗</a>
+    </div>
+  </div>
+
+  <div class="container" style="padding-top:44px">
+    <div class="divider" style="padding-top:26px">
+      <div style="display:flex; justify-content:space-between; align-items:baseline; gap:16px; flex-wrap:wrap; margin-bottom:10px">
+        <div class="eyebrow">02 · Vision models &amp; systems</div>
+        <div style="font-size:12.5px; color:var(--ink-72)">2026 · in progress</div>
+      </div>
+      <h2 style="font-family:'Newsreader',serif; font-weight:500; font-size:27px; line-height:1.25; margin:0 0 16px">Empirical benchmarking of sub-3B VLMs on CPU-only hardware</h2>
+      <p style="font-family:'Newsreader',serif; font-size:17px; line-height:1.65; color:var(--ink-80); max-width:60ch; margin:0 0 16px; text-wrap:pretty">We're measuring accuracy, latency, and memory footprint for three sub-3B vision-language models — SmolVLM, Moondream2, and TinyLLaVA — on VQAv2, with no GPU anywhere in the loop.</p>
+      <p style="font-size:15px; line-height:1.72; color:var(--ink-75); max-width:62ch; margin:0 0 18px; text-wrap:pretty">Almost every VLM benchmark assumes a GPU, and that simply isn't how edge or budget deployment works. Measuring on the hardware people actually have exposes bottlenecks that never appear in a paper: <b>Moondream2 takes 700+ seconds per image on Intel CPUs</b>. Numbers like that change which model you'd pick, and nobody reports them.</p>
+      <div class="chip-row">
+        <span class="chip">SmolVLM</span>
+        <span class="chip">Moondream2</span>
+        <span class="chip">TinyLLaVA</span>
+        <span class="chip">VQAv2</span>
+      </div>
+      <div style="font-size:12.5px; color:var(--ink-78); margin-top:16px; font-style:italic">Repository isn't public yet — happy to talk about the results in the meantime.</div>
+    </div>
+  </div>
+
+  <div class="container" style="padding-top:48px">
+    <div class="divider" style="padding-top:26px">
+      <div class="subheading-lg" style="margin-bottom:14px">what's coming</div>
+      <div class="quote-panel" style="padding:22px 24px; max-width:60ch">
+        <p style="font-family:'Newsreader',serif; font-size:17px; line-height:1.65; color:rgba(51,46,36,.82); margin:0 0 14px; text-wrap:pretty">Rebuilding math foundations from zero right now — linear algebra via 3Blue1Brown, then Boyd's <i>VMLS</i> — because I want real intuition, not just enough to follow a paper.</p>
+        <p style="font-size:15px; line-height:1.72; color:var(--ink-75); margin:0; text-wrap:pretty">After that, ARENA 3.0's curriculum properly, then a full replication of a published interpretability paper before I touch anything original again. The GPT-2 Small work — the Previous Token Head and the Induction Head — was a good first result, but the next few months are about building the rigor to go past it, not repeat it. All of it's building toward a MATS 2027 application.</p>
+      </div>
+    </div>
+  </div>
+
+  <footer class="container site-footer">
+    <div class="footer-title">say hi — I'd like that.</div>
+    <div class="footer-links">
+      <a href="mailto:gowrishkumar61@gmail.com">Email</a>
+      <a href="https://github.com/gowrish-kumar-61" target="_blank" rel="noopener noreferrer">GitHub</a>
+      <a href="https://twitter.com/gowrishkumar23" target="_blank" rel="noopener noreferrer">Twitter</a>
+      <a href="https://linkedin.com/in/gowrish-kumar-reddy-ab1a0132b" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+    </div>
+  </footer>
+</div>
+</body>
+</html>
