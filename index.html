@@ -47,6 +47,16 @@
     <div class="subheading">what I've been working on</div>
 
     <div class="divider" style="padding:22px 0">
+      <div style="font-family:'Newsreader',serif; font-size:22px; line-height:1.3; margin-bottom:8px">Copies of one model look like colluders</div>
+      <p style="font-size:14.5px; line-height:1.68; color:var(--ink-72); margin:0 0 12px; max-width:62ch; text-wrap:pretty">Can an auditor who sees only what LLM agents do detect collusion? I tested an information-theoretic detector on Qwen, Llama and gpt-oss agents playing repeated Rock-Paper-Scissors. It accused a pair in 30 of 78 games with no collusion at all, and kept flagging two copies of the same model as the most linked pair. Solo entry to Apart Research's AI Collusion Research Sprint.</p>
+      <div class="meta-row">
+        <span>2026</span><span>·</span><span>paper + 179 game logs</span><span>·</span>
+        <a href="/research/copies-look-like-colluders.pdf" class="link-underline" style="text-underline-offset:2px" target="_blank" rel="noopener noreferrer">paper ↗</a><span>·</span>
+        <a href="https://github.com/gowrish-kumar-61/copies-look-like-colluders" class="link-underline" style="text-underline-offset:2px" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+      </div>
+    </div>
+
+    <div class="divider" style="padding:22px 0">
       <div style="font-family:'Newsreader',serif; font-size:22px; line-height:1.3; margin-bottom:8px">Mechanistic interpretability pipeline for GPT-2 Small</div>
       <p style="font-size:14.5px; line-height:1.68; color:var(--ink-72); margin:0 0 12px; max-width:62ch; text-wrap:pretty">Built in raw PyTorch with no interpretability libraries, because I wanted to understand every step. Found a Previous Token Head at L3H0 (score 0.87 — 19× baseline) and an Induction Head at L5H1, confirmed via activation patching. I located both analytically with SVD first, then went back and verified them experimentally.</p>
       <div class="meta-row">

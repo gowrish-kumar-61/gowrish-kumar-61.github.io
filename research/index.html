@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Research — Gowrish Kumar Reddy</title>
-<meta name="description" content="Mechanistic interpretability on GPT-2 Small, and CPU-only VLM benchmarking.">
+<meta name="description" content="Action-only collusion detection for LLM agents, mechanistic interpretability on GPT-2 Small, and CPU-only VLM benchmarking.">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -29,13 +29,38 @@
 
   <div class="container" style="padding-top:52px">
     <h1 class="h1-inner">Research</h1>
-    <p style="font-family:'Newsreader',serif; font-size:19px; line-height:1.6; color:var(--ink-80); max-width:54ch; margin:0; text-wrap:pretty">Two things I'm working on. One is about understanding what a model has learned; the other is about what happens when you try to actually run one.</p>
+    <p style="font-family:'Newsreader',serif; font-size:19px; line-height:1.6; color:var(--ink-80); max-width:54ch; margin:0; text-wrap:pretty">Three things I've been working on. One asks whether we can catch AI agents colluding from their actions alone; one is about understanding what a model has learned; the last is about what happens when you try to actually run one.</p>
   </div>
 
   <div class="container" style="padding-top:46px">
     <div class="divider" style="padding-top:26px">
       <div style="display:flex; justify-content:space-between; align-items:baseline; gap:16px; flex-wrap:wrap; margin-bottom:10px">
-        <div class="eyebrow">01 · Mechanistic interpretability</div>
+        <div class="eyebrow">01 · AI safety · multi-agent collusion</div>
+        <div style="font-size:12.5px; color:var(--ink-72)">Oct 2026 · Apart Research sprint</div>
+      </div>
+      <h2 style="font-family:'Newsreader',serif; font-weight:500; font-size:27px; line-height:1.25; margin:0 0 16px">Copies of one model look like colluders: limits of action-only collusion detection for LLM agents</h2>
+      <p style="font-family:'Newsreader',serif; font-size:17px; line-height:1.65; color:var(--ink-80); max-width:60ch; margin:0 0 16px; text-wrap:pretty">If an auditor can see only what AI agents do, not what they say, can they tell when two of them are secretly working together? I took an information-theoretic detector, pairwise net influence (Bonjour et al., 2022), and tested it on LLM agents for Question 1.4 of Apart Research's AI Collusion Research Sprint, as a solo entry.</p>
+      <p style="font-size:15px; line-height:1.72; color:var(--ink-75); max-width:62ch; margin:0 0 16px; text-wrap:pretty">Three agents (Qwen3-8B, Llama 3.1 8B, gpt-oss-20b) play repeated Rock-Paper-Scissors, and in some games two are secretly told to cooperate. The detector works on scripted bots, but not on LLMs. Calibrated for 5% false accusations, it accused a pair in <b>30 of 78 games with no collusion</b>. In mixed games it ranked <b>two copies of the same model as the most linked pair in 41 of 60</b> (chance: 1 in 3). Copies of one model simply behave alike. Meanwhile, colluding Qwen pairs played one move almost every round, which leaves nothing for the detector to measure. A judge that reads the agents' messages found the true pair in all 18 chat games with messages.</p>
+      <p style="font-size:15px; line-height:1.72; color:var(--ink-75); max-width:62ch; margin:0 0 18px; text-wrap:pretty">Calibrating against no-collusion games of the same models cut false accusations to 5 of 78. But it still found only 4 of 41 secret pairs, and I designed it on the same games, so it needs testing on fresh ones. The lesson: action-only detectors need a same-model reference before they can be trusted on LLM agents.</p>
+      <img src="/research/colluders-fig.png" alt="Bar chart: share of no-collusion games with a false accusation, by detector and game type; most false accusations come from games with two copies of Qwen" style="width:100%; max-width:720px; height:auto; display:block; margin:0 0 18px">
+      <div class="chip-row" style="margin-bottom:18px">
+        <span class="chip">179 game logs</span>
+        <span class="chip">net influence</span>
+        <span class="chip">shuffle calibration</span>
+        <span class="chip">LLM judge</span>
+        <span class="chip">fully reproducible</span>
+      </div>
+      <div style="display:flex; gap:14px; flex-wrap:wrap">
+        <a href="/research/copies-look-like-colluders.pdf" class="btn-dashed" target="_blank" rel="noopener noreferrer">read the paper (PDF) ↗</a>
+        <a href="https://github.com/gowrish-kumar-61/copies-look-like-colluders" class="btn-dashed" target="_blank" rel="noopener noreferrer">code, logs &amp; analysis on GitHub ↗</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="container" style="padding-top:44px">
+    <div class="divider" style="padding-top:26px">
+      <div style="display:flex; justify-content:space-between; align-items:baseline; gap:16px; flex-wrap:wrap; margin-bottom:10px">
+        <div class="eyebrow">02 · Mechanistic interpretability</div>
         <div style="font-size:12.5px; color:var(--ink-72)">2026</div>
       </div>
       <h2 style="font-family:'Newsreader',serif; font-weight:500; font-size:27px; line-height:1.25; margin:0 0 16px">A mechanistic interpretability pipeline for GPT-2 Small, built from scratch</h2>
@@ -54,7 +79,7 @@
   <div class="container" style="padding-top:44px">
     <div class="divider" style="padding-top:26px">
       <div style="display:flex; justify-content:space-between; align-items:baseline; gap:16px; flex-wrap:wrap; margin-bottom:10px">
-        <div class="eyebrow">02 · Vision models &amp; systems</div>
+        <div class="eyebrow">03 · Vision models &amp; systems</div>
         <div style="font-size:12.5px; color:var(--ink-72)">2026 · in progress</div>
       </div>
       <h2 style="font-family:'Newsreader',serif; font-weight:500; font-size:27px; line-height:1.25; margin:0 0 16px">Empirical benchmarking of sub-3B VLMs on CPU-only hardware</h2>
