@@ -29,7 +29,7 @@
 
   <div class="container" style="padding-top:52px">
     <h1 class="h1-inner">Research</h1>
-    <p style="font-family:'Newsreader',serif; font-size:19px; line-height:1.6; color:var(--ink-80); max-width:54ch; margin:0; text-wrap:pretty">Four things I've been working on. Two ask whether we can catch AI agents colluding from what they do, first in a small game and then at swarm scale; one is about understanding what a model has learned; the last is about what happens when you try to actually run one.</p>
+    <p style="font-family:'Newsreader',serif; font-size:19px; line-height:1.6; color:var(--ink-80); max-width:54ch; margin:0; text-wrap:pretty">Five things I've been working on. Two ask whether we can catch AI agents colluding from what they do, first in a small game and then at swarm scale; one is open-source evaluation and interpretability work at Station House; one is about understanding what a model has learned; the last is about what happens when you try to actually run one.</p>
   </div>
 
   <div class="container" style="padding-top:46px">
@@ -60,7 +60,32 @@
   <div class="container" style="padding-top:44px">
     <div class="divider" style="padding-top:26px">
       <div style="display:flex; justify-content:space-between; align-items:baseline; gap:16px; flex-wrap:wrap; margin-bottom:10px">
-        <div class="eyebrow">02 · AI safety · multi-agent collusion</div>
+        <div class="eyebrow">02 · AI safety · LLM evaluation &amp; interpretability</div>
+        <div style="font-size:12.5px; color:var(--ink-72)">Oct 2026 – now · Station House, open source</div>
+      </div>
+      <h2 style="font-family:'Newsreader',serif; font-weight:500; font-size:27px; line-height:1.25; margin:0 0 16px">Station House: stress-testing ConspiracyBench, and explaining Marin 32B neurons</h2>
+      <p style="font-family:'Newsreader',serif; font-size:17px; line-height:1.65; color:var(--ink-80); max-width:60ch; margin:0 0 16px; text-wrap:pretty">Station House runs open, community AI safety research projects. ConspiracyBench asks how hard it is to teach a model something it should not believe. Conspiracy theories are already in pretraining data, so they are a safe stand-in for dangerous knowledge. A judge labels each answer hold, diverge or abstain, including under scripted pushback.</p>
+      <p style="font-size:15px; line-height:1.72; color:var(--ink-75); max-width:62ch; margin:0 0 16px; text-wrap:pretty">I took the "stress test the solver" task: <b>six merged PRs</b> of offline tests and fixes for the Inspect evaluation pipeline. They cover incomplete transcripts, bounded retries and timeouts, a Windows encoding bug, and awkward text that broke the run: line separators that split one record into two, a lone surrogate that crashed the whole eval when writing its log, and JSON braces mangled by the prompt template. Findings that needed a design choice went to the team as one discussion, not straight into code. I also added <b>35 merged questions</b>, each checked against its sources, across regions and in Hindi, Portuguese, French, Arabic and Spanish. One exploratory finding: a small local judge model changed its label when the answer it graded imitated a grader note (one case each, not a measured rate).</p>
+      <p style="font-size:15px; line-height:1.72; color:var(--ink-75); max-width:62ch; margin:0 0 18px; text-wrap:pretty">Since November I'm also in Station House's neuron hunt on Marin 32B, run with SAAR India, which explains both sides of MLP neurons from activation exemplars and the logit lens, then tests them. My first explanation is in draft.</p>
+      <div class="chip-row" style="margin-bottom:18px">
+        <span class="chip">41 merged PRs</span>
+        <span class="chip">Inspect AI</span>
+        <span class="chip">stress tests</span>
+        <span class="chip">35 sourced questions</span>
+        <span class="chip">6 languages</span>
+        <span class="chip">Marin 32B neurons</span>
+      </div>
+      <div style="display:flex; gap:14px; flex-wrap:wrap">
+        <a href="https://huggingface.co/spaces/Station-house/ConspiracyBench" class="btn-dashed" target="_blank" rel="noopener noreferrer">ConspiracyBench on Hugging Face ↗</a>
+        <a href="https://github.com/Station-House/marin-neuron-hunt" class="btn-dashed" target="_blank" rel="noopener noreferrer">Marin neuron hunt on GitHub ↗</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="container" style="padding-top:44px">
+    <div class="divider" style="padding-top:26px">
+      <div style="display:flex; justify-content:space-between; align-items:baseline; gap:16px; flex-wrap:wrap; margin-bottom:10px">
+        <div class="eyebrow">03 · AI safety · multi-agent collusion</div>
         <div style="font-size:12.5px; color:var(--ink-72)">Oct 2026 · Apart Research sprint</div>
       </div>
       <h2 style="font-family:'Newsreader',serif; font-weight:500; font-size:27px; line-height:1.25; margin:0 0 16px">Copies of one model look like colluders: limits of action-only collusion detection for LLM agents</h2>
@@ -85,7 +110,7 @@
   <div class="container" style="padding-top:44px">
     <div class="divider" style="padding-top:26px">
       <div style="display:flex; justify-content:space-between; align-items:baseline; gap:16px; flex-wrap:wrap; margin-bottom:10px">
-        <div class="eyebrow">03 · Mechanistic interpretability</div>
+        <div class="eyebrow">04 · Mechanistic interpretability</div>
         <div style="font-size:12.5px; color:var(--ink-72)">2026</div>
       </div>
       <h2 style="font-family:'Newsreader',serif; font-weight:500; font-size:27px; line-height:1.25; margin:0 0 16px">A mechanistic interpretability pipeline for GPT-2 Small, built from scratch</h2>
@@ -104,7 +129,7 @@
   <div class="container" style="padding-top:44px">
     <div class="divider" style="padding-top:26px">
       <div style="display:flex; justify-content:space-between; align-items:baseline; gap:16px; flex-wrap:wrap; margin-bottom:10px">
-        <div class="eyebrow">04 · Vision models &amp; systems</div>
+        <div class="eyebrow">05 · Vision models &amp; systems</div>
         <div style="font-size:12.5px; color:var(--ink-72)">2026 · in progress</div>
       </div>
       <h2 style="font-family:'Newsreader',serif; font-weight:500; font-size:27px; line-height:1.25; margin:0 0 16px">Empirical benchmarking of sub-3B VLMs on CPU-only hardware</h2>
