@@ -170,7 +170,7 @@ Deliberately short. Do not add sections.
 3. **Work section** (`padding-top: 66px`):
    - Caveat 27px subheading: "what I've been working on"
    - Two entries separated by `1.5px dashed` rules (first has `border-top`, second has both `border-top` and `border-bottom`), each `padding: 22px 0`:
-     - **"Mechanistic interpretability pipeline for GPT-2 Small"** — body paragraph, then metadata row: `2026 · findings doc + figures · GitHub ↗` linking to `https://github.com/gowrish-kumar-61/mechanistic-interp-gpt2`
+     - **"Mechanistic interpretability pipeline for GPT-2"** — body paragraph, then metadata row: `2026 · findings doc + figures · GitHub ↗` linking to `https://github.com/gowrish-kumar-61/mechanistic-interp-gpt2`
      - **"Benchmarking sub-3B VLMs on CPU-only hardware"** — body paragraph, then metadata row: `2026 ·` + chip "in progress · not public". **No link** — the repo is private.
    - Sticky note, rotated `-.7deg`, max-width 44ch: "**Right now:** rebuilding math foundations from zero, then ARENA 3.0 properly. *the full plan →*" (links to Research)
 4. **Footer** (shared).
@@ -187,9 +187,9 @@ Deliberately short. Do not add sections.
 2. **Hero:** h1 "Research" + lead paragraph, max-width 54ch: *"Two things I'm working on. One is about understanding what a model has learned; the other is about what happens when you try to actually run one."*
 3. **Project 01** (dashed `border-top`, `padding-top: 26px`):
    - Header row, `space-between`, wrapping: eyebrow "01 · Mechanistic interpretability" | date "2026"
-   - `h2` Newsreader 27px/500: "A mechanistic interpretability pipeline for GPT-2 Small, built from scratch"
-   - Newsreader 17px paragraph (the "why from scratch" rationale), then Work Sans 15px paragraph with the results. **`<b>` on the two planted heads:** "previous-token head at L3H0" and "induction head at L5H1" (synthetic weights; only the first was detected).
-   - Chip row, `gap: 10px`: `raw PyTorch` · `planted-circuit tests` · `activation patching` · `findings doc`
+   - `h2` Newsreader 27px/500: "A mechanistic interpretability pipeline for GPT-2, built from scratch"
+   - Newsreader 17px paragraph (the "why from scratch" rationale), then Work Sans 15px paragraph with the results. two results paragraphs: real GPT-2 Medium first (**`<b>`** on "induction heads" and "previous-token heads"), then the synthetic planted-circuit test (**`<b>`** on "previous-token head at L3H0" and "induction head at L5H1"; only the first was detected).
+   - Chip row, `gap: 10px`: `raw PyTorch` · `planted-circuit tests` · `activation patching` · `GPT-2 Medium`
    - Dashed button: "read the findings doc & figures on GitHub ↗"
 4. **Project 02** (same structure):
    - Eyebrow "02 · Vision models & systems" | date "2026 · in progress"
@@ -221,7 +221,7 @@ Structured, scannable, closest to a document. **No GPA anywhere** — an explici
 2. **Header:** flex row, `align-items: flex-end`, wrapping — h1 "Curriculum vitae" on the left; on the right a **disabled-looking** "PDF coming soon" chip (`1.5px dashed rgba(51,46,36,.35)`, radius 2px, `padding: 9px 16px`, `rgba(51,46,36,.72)`, `cursor: default`, not a link). Below: "Gowrish Kumar Reddy · Email · GitHub" with the two underlined links.
 3. **Education** (eyebrow): the degree row as on About.
 4. **Research & projects** (eyebrow): two entries, each a title/date row then a `<ul>` (`padding-left: 18px`, 14.5px, `line-height: 1.7`, max-width 62ch).
-   - GPT-2 Small — **2026** — five bullets: raw-PyTorch pipeline; planted Previous Token Head L3H0 detected at 0.87 (19× baseline); planted Induction Head L5H1 not detected (needs K-composition); heads built with SVD, real-weight run next; findings report with figures + GitHub link.
+   - GPT-2 — **2026** — six bullets: raw-PyTorch pipeline; matches HuggingFace on GPT-2 Medium (2e-4); induction heads L9H9 0.95 and previous-token head L5H11 0.97, top-five ablation 0.88 → 0.78; IOI on one prompt (+3.29 / −2.05), Small's circuit heads don't carry over; synthetic planted-circuit test (PTH 0.87, 19×; IH not detected); findings report with figures + GitHub link.
    - CPU VLM benchmarking — **2026 · ongoing** — three bullets: the three models on VQAv2; the GPU-assumption gap; the Moondream2 700+ s/image result.
 5. **Technical skills** (eyebrow): grid `repeat(auto-fit, minmax(min(100%,240px), 1fr))`, `gap: 16px 28px`, four cells, each a muted category label above the values:
    - Languages — Python

@@ -77,8 +77,8 @@
     </div>
 
     <div class="divider" style="padding:22px 0">
-      <div style="font-family:'Newsreader',serif; font-size:22px; line-height:1.3; margin-bottom:8px">Mechanistic interpretability pipeline for GPT-2 Small</div>
-      <p style="font-size:14.5px; line-height:1.68; color:var(--ink-72); margin:0 0 12px; max-width:62ch; text-wrap:pretty">Built in raw PyTorch with no interpretability libraries, because I wanted to understand every step. To test it against a known answer, I planted a previous-token head (L3H0) and an induction head (L5H1) in synthetic weights. It picked out the planted previous-token head clearly (score 0.87, 19× the baseline) but not the induction head, which only works when an earlier head feeds it. Running it on the real GPT-2 weights is next.</p>
+      <div style="font-family:'Newsreader',serif; font-size:22px; line-height:1.3; margin-bottom:8px">Mechanistic interpretability pipeline for GPT-2</div>
+      <p style="font-size:14.5px; line-height:1.68; color:var(--ink-72); margin:0 0 12px; max-width:62ch; text-wrap:pretty">Built in raw PyTorch with no interpretability libraries, because I wanted to understand every step. On the real GPT-2 Medium weights it matches HuggingFace's outputs and finds induction heads (top: L9H9, score 0.95) and previous-token heads (L5H11, 0.97); zeroing the top five lowers the probability of the correct repeated token from 0.88 to 0.78. Before that, I tested it on synthetic weights with planted heads: it caught the planted previous-token head but not the induction head, which only works when an earlier head feeds it.</p>
       <div class="meta-row">
         <span>2026</span><span>·</span><span>findings doc + figures</span><span>·</span>
         <a href="https://github.com/gowrish-kumar-61/mechanistic-interp-gpt2" class="link-underline" style="text-underline-offset:2px" target="_blank" rel="noopener noreferrer">GitHub ↗</a>

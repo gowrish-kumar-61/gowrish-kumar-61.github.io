@@ -94,14 +94,15 @@
 
       <div style="margin-bottom:26px">
         <div style="display:flex; justify-content:space-between; align-items:baseline; gap:20px; flex-wrap:wrap; margin-bottom:8px">
-          <div style="font-family:'Newsreader',serif; font-size:19px">Mechanistic interpretability pipeline for GPT-2 Small</div>
+          <div style="font-family:'Newsreader',serif; font-size:19px">Mechanistic interpretability pipeline for GPT-2</div>
           <div style="font-size:13px; color:var(--ink-72); white-space:nowrap">2026</div>
         </div>
         <ul style="margin:0; padding-left:18px; font-size:14.5px; line-height:1.7; color:var(--ink-75); max-width:62ch">
           <li>Built an end-to-end interpretability pipeline in raw PyTorch, without interpretability libraries.</li>
-          <li>Tested it on synthetic weights with planted circuits: it detected the planted Previous Token Head at L3H0 (score 0.87, 19× the baseline).</li>
-          <li>Did not detect the planted Induction Head at L5H1, because induction needs an earlier head to feed it (K-composition); documented why.</li>
-          <li>Built both planted heads by constructing attention weights with SVD. Running the pipeline on real GPT-2 weights is next.</li>
+          <li>Checked it against HuggingFace on real GPT-2 Medium: logits match to within 2e-4.</li>
+          <li>Found induction heads (top: L9H9, score 0.95) and previous-token heads (L5H11, 0.97); zeroing the top five lowered the probability of the correct repeated token from 0.88 to 0.78.</li>
+          <li>On one indirect-object prompt the model prefers the right name (logit difference +3.29, −2.05 with names swapped); the GPT-2 Small circuit heads don't carry over to Medium.</li>
+          <li>First tested on synthetic weights with planted heads: caught the planted previous-token head (0.87, 19× baseline) but not the induction head, which needs K-composition.</li>
           <li>Documented in a findings report with figures — <a href="https://github.com/gowrish-kumar-61/mechanistic-interp-gpt2" class="link-underline" style="text-underline-offset:2px" target="_blank" rel="noopener noreferrer">GitHub ↗</a></li>
         </ul>
       </div>
