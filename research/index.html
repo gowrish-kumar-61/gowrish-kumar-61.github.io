@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Research — Gowrish Kumar Reddy</title>
-<meta name="description" content="Collusion monitors in same-model agent swarms, action-only collusion detection for LLM agents, mechanistic interpretability on GPT-2 Small, and CPU-only VLM benchmarking.">
+<meta name="description" content="Collusion monitors in same-model agent swarms, open-source evaluation and interpretability work at Station House, action-only collusion detection for LLM agents, a mechanistic interpretability pipeline for GPT-2 Small, and CPU-only VLM benchmarking.">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -115,12 +115,12 @@
       </div>
       <h2 style="font-family:'Newsreader',serif; font-weight:500; font-size:27px; line-height:1.25; margin:0 0 16px">A mechanistic interpretability pipeline for GPT-2 Small, built from scratch</h2>
       <p style="font-family:'Newsreader',serif; font-size:17px; line-height:1.65; color:var(--ink-80); max-width:60ch; margin:0 0 16px; text-wrap:pretty">I wrote the whole pipeline in raw PyTorch without touching an interpretability library. The point wasn't convenience — it was that I didn't want any step of the analysis to be a black box to me while I was studying a black box.</p>
-      <p style="font-size:15px; line-height:1.72; color:var(--ink-75); max-width:62ch; margin:0 0 18px; text-wrap:pretty">The method was analytical first: I used SVD on the attention head weight matrices to predict which heads should be implementing which behaviour, then went looking for experimental confirmation rather than the other way around. Two heads came out of it clearly — a <b>Previous Token Head at L3H0</b>, scoring 0.87 against a 19× lower baseline, and an <b>Induction Head at L5H1</b>, which I confirmed with activation patching. Both predictions held up.</p>
+      <p style="font-size:15px; line-height:1.72; color:var(--ink-75); max-width:62ch; margin:0 0 18px; text-wrap:pretty">Before trusting it on a real model, I tested it against a known answer: synthetic GPT-2 Small weights with two circuits planted by construction, using SVD to build a <b>previous-token head at L3H0</b> and an <b>induction head at L5H1</b>. The pipeline picked out the planted previous-token head clearly, scoring 0.87 against a baseline of about 0.046 (19×). It did not find the induction head. Induction needs an earlier head to write the previous token into the residual stream first, and with every other weight random, that path never forms; activation patching recovered almost nothing for the same reason. That negative result taught me more than the positive one. Running the pipeline on the real GPT-2 weights is the next step.</p>
       <div class="chip-row" style="margin-bottom:18px">
         <span class="chip">raw PyTorch</span>
-        <span class="chip">SVD weight analysis</span>
+        <span class="chip">planted-circuit tests</span>
         <span class="chip">activation patching</span>
-        <span class="chip">14 figures</span>
+        <span class="chip">findings doc</span>
       </div>
       <a href="https://github.com/gowrish-kumar-61/mechanistic-interp-gpt2" class="btn-dashed" target="_blank" rel="noopener noreferrer">read the findings doc &amp; figures on GitHub ↗</a>
     </div>
@@ -150,7 +150,7 @@
       <div class="subheading-lg" style="margin-bottom:14px">what's coming</div>
       <div class="quote-panel" style="padding:22px 24px; max-width:60ch">
         <p style="font-family:'Newsreader',serif; font-size:17px; line-height:1.65; color:rgba(51,46,36,.82); margin:0 0 14px; text-wrap:pretty">Rebuilding math foundations right now — linear algebra via 3Blue1Brown, then Boyd's <i>VMLS</i> — because I want real intuition, not just enough to follow a paper.</p>
-        <p style="font-size:15px; line-height:1.72; color:var(--ink-75); margin:0; text-wrap:pretty">After that, ARENA 3.0's curriculum properly, then a full replication of a published interpretability paper before I touch anything original again. The GPT-2 Small work — the Previous Token Head and the Induction Head — was a good first result, but the next few months are about building the rigor to go past it, not repeat it. All of it's building toward a MATS 2027 application.</p>
+        <p style="font-size:15px; line-height:1.72; color:var(--ink-75); margin:0; text-wrap:pretty">After that, ARENA 3.0's curriculum properly, then a full replication of a published interpretability paper before I touch anything original again. The GPT-2 Small pipeline was a good first step — it caught a planted previous-token head but not a planted induction head — and the next few months are about building the rigor to go past it, not repeat it. All of it's building toward a MATS 2027 application.</p>
       </div>
     </div>
   </div>
