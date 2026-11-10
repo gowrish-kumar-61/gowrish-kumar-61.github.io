@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Research — Gowrish Kumar Reddy</title>
-<meta name="description" content="Action-only collusion detection for LLM agents, mechanistic interpretability on GPT-2 Small, and CPU-only VLM benchmarking.">
+<meta name="description" content="Collusion monitors in same-model agent swarms, action-only collusion detection for LLM agents, mechanistic interpretability on GPT-2 Small, and CPU-only VLM benchmarking.">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -29,13 +29,38 @@
 
   <div class="container" style="padding-top:52px">
     <h1 class="h1-inner">Research</h1>
-    <p style="font-family:'Newsreader',serif; font-size:19px; line-height:1.6; color:var(--ink-80); max-width:54ch; margin:0; text-wrap:pretty">Three things I've been working on. One asks whether we can catch AI agents colluding from their actions alone; one is about understanding what a model has learned; the last is about what happens when you try to actually run one.</p>
+    <p style="font-family:'Newsreader',serif; font-size:19px; line-height:1.6; color:var(--ink-80); max-width:54ch; margin:0; text-wrap:pretty">Four things I've been working on. Two ask whether we can catch AI agents colluding from what they do, first in a small game and then at swarm scale; one is about understanding what a model has learned; the last is about what happens when you try to actually run one.</p>
   </div>
 
   <div class="container" style="padding-top:46px">
     <div class="divider" style="padding-top:26px">
       <div style="display:flex; justify-content:space-between; align-items:baseline; gap:16px; flex-wrap:wrap; margin-bottom:10px">
-        <div class="eyebrow">01 · AI safety · multi-agent collusion</div>
+        <div class="eyebrow">01 · AI safety · agent swarms</div>
+        <div style="font-size:12.5px; color:var(--ink-72)">Nov 2026 · Apart Research hackathon</div>
+      </div>
+      <h2 style="font-family:'Newsreader',serif; font-weight:500; font-size:27px; line-height:1.25; margin:0 0 16px">Copies look like colluders, at swarm scale: false accusations by behaviour monitors in same-model swarms</h2>
+      <p style="font-family:'Newsreader',serif; font-size:17px; line-height:1.65; color:var(--ink-80); max-width:60ch; margin:0 0 16px; text-wrap:pretty">My October project below found that copies of one model look like colluders. This follow-up asks what that means for agent swarms, which are often built from many copies of a few models. How often do behaviour-based collusion monitors accuse innocent copies, and can they be calibrated to stop without losing real colluders? Solo entry to Apart Research's Swarm Alignment Hackathon.</p>
+      <p style="font-size:15px; line-height:1.72; color:var(--ink-75); max-width:62ch; margin:0 0 16px; text-wrap:pretty">LLM firms (llama3.2:3b and phi3:mini, 116 games) set prices in a repeated market with 4, 8 or 12 agents, and I ran five monitors on every pair. Two standard monitors accused innocent same-model pairs <b>4 to 16 times as often</b> as mixed-model pairs, and the share of games with a false accusation grew with swarm size: <b>60%, 90% and 100%</b> at 4, 8 and 12 agents. Calibrating against known-innocent pairs, or against a twin replay that needs no labels, cut this to 15–50%, at the cost of missing weak copiers more often. A second model pair (qwen3:8b and llama3.1:8b, 111 games) showed the same rise with swarm size and the same calibration benefit.</p>
+      <p style="font-size:15px; line-height:1.72; color:var(--ink-75); max-width:62ch; margin:0 0 18px; text-wrap:pretty">On real AI Village logs (AI Digest), chat timing alone made copies look coordinated: <b>13 of 22</b> same-model pairs were flagged, against 38% of other pairs. A label-free control removed this (0 of 22, against 1.9%) and partly held up on held-out data. And a loose deal between two LLMs earned about three times other firms' profit while none of the five monitors caught it. The lesson: a flag is a reason for review, not proof, and no flag does not rule collusion out.</p>
+      <img src="/research/swarm-fig.png" alt="Three panels. Left: share of games with a false accusation rises with swarm size for the uncalibrated monitor and stays lower with calibration. Middle: calibrated monitors still catch pairs that copy most rounds but miss weak copiers. Right: on AI Village logs, 13 of 22 same-model pairs are flagged with no control, and none after a slide control." style="width:100%; max-width:720px; height:auto; display:block; margin:0 0 18px">
+      <div class="chip-row" style="margin-bottom:18px">
+        <span class="chip">227 LLM games</span>
+        <span class="chip">5 monitors</span>
+        <span class="chip">twin calibration</span>
+        <span class="chip">AI Village logs</span>
+        <span class="chip">code + summary data</span>
+      </div>
+      <div style="display:flex; gap:14px; flex-wrap:wrap">
+        <a href="/research/copies-look-like-colluders-swarm.pdf" class="btn-dashed" target="_blank" rel="noopener noreferrer">read the paper (PDF) ↗</a>
+        <a href="https://github.com/gowrish-kumar-61/copies-look-like-colluders-swarm" class="btn-dashed" target="_blank" rel="noopener noreferrer">code &amp; summary results on GitHub ↗</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="container" style="padding-top:44px">
+    <div class="divider" style="padding-top:26px">
+      <div style="display:flex; justify-content:space-between; align-items:baseline; gap:16px; flex-wrap:wrap; margin-bottom:10px">
+        <div class="eyebrow">02 · AI safety · multi-agent collusion</div>
         <div style="font-size:12.5px; color:var(--ink-72)">Oct 2026 · Apart Research sprint</div>
       </div>
       <h2 style="font-family:'Newsreader',serif; font-weight:500; font-size:27px; line-height:1.25; margin:0 0 16px">Copies of one model look like colluders: limits of action-only collusion detection for LLM agents</h2>
@@ -60,7 +85,7 @@
   <div class="container" style="padding-top:44px">
     <div class="divider" style="padding-top:26px">
       <div style="display:flex; justify-content:space-between; align-items:baseline; gap:16px; flex-wrap:wrap; margin-bottom:10px">
-        <div class="eyebrow">02 · Mechanistic interpretability</div>
+        <div class="eyebrow">03 · Mechanistic interpretability</div>
         <div style="font-size:12.5px; color:var(--ink-72)">2026</div>
       </div>
       <h2 style="font-family:'Newsreader',serif; font-weight:500; font-size:27px; line-height:1.25; margin:0 0 16px">A mechanistic interpretability pipeline for GPT-2 Small, built from scratch</h2>
@@ -79,7 +104,7 @@
   <div class="container" style="padding-top:44px">
     <div class="divider" style="padding-top:26px">
       <div style="display:flex; justify-content:space-between; align-items:baseline; gap:16px; flex-wrap:wrap; margin-bottom:10px">
-        <div class="eyebrow">03 · Vision models &amp; systems</div>
+        <div class="eyebrow">04 · Vision models &amp; systems</div>
         <div style="font-size:12.5px; color:var(--ink-72)">2026 · in progress</div>
       </div>
       <h2 style="font-family:'Newsreader',serif; font-weight:500; font-size:27px; line-height:1.25; margin:0 0 16px">Empirical benchmarking of sub-3B VLMs on CPU-only hardware</h2>
